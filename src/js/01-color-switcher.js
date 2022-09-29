@@ -6,8 +6,8 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-startBtn.addEventListener("click", startClick);
-stopBtn.addEventListener("click", stopClick);
+// startBtn.addEventListener("click", startClick);
+// stopBtn.addEventListener("click", stopClick);
 
 let timerId = null;
 
@@ -15,13 +15,16 @@ startBtn.addEventListener("click", () => {
   timerId = setInterval(() => {
     colorBody.style.cssText = `
       background-color: ${getRandomHexColor()};
+      margin: 16px;
+      text-align: center;
     `;
+    startBtn.setAttribute('disabled', true);
   }, 1000);
 });
 
 
 stopBtn.addEventListener("click", () => {
   clearInterval(timerId);
-  console.log(`Interval with id ${timerId} has stopped!`);
+  startBtn.setAttribute('disabled', false);
 });
 
