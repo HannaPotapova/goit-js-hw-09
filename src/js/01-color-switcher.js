@@ -18,13 +18,13 @@ startBtn.addEventListener("click", () => {
       margin: 16px;
       text-align: center;
     `;
-    startBtn.setAttribute('disabled', true);
   }, 1000);
+  startBtn.setAttribute('disabled', true);
 });
 
 
 stopBtn.addEventListener("click", () => {
   clearInterval(timerId);
-  startBtn.setAttribute('disabled', false);
+  startBtn.removeAttribute('disabled');
 });
 
